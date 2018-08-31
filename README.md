@@ -3,8 +3,7 @@ Illusion Plugin Architecture (Reloaded) - let's you inject code into Unity proje
 
 ## How To Install
 
-1. Download a release (https://github.com/russianGecko/IPA-Reloaded/releases)
-  - Download older releases at (https://github.com/Eusth/IPA/releases)
+1. Download a release (https://github.com/nike4613/IPA-Reloaded/releases)
 2. Extract the contents into the game folder
 3. Drag & drop the game exe onto **IPA.exe**
 4. Start the game as usual (the generated shortcut is optional)
@@ -19,12 +18,12 @@ To verify it worked, start the game with the `--verbose` flag. If a new console 
 
 ## How To Develop
 
-1. Create a new **Class Library** C# project (.NET 2.0 to 3.5 (for LINQ))
+1. Create a new **Class Library** C# project (.NET 4.6)
 2. Download a release and add **IllusionPlugin.dll** to your references
-3. Implement `IPlugin` or `IEnhancedPlugin`
-4. Build the project and copy the DLL into the Plugins folder of the game
+3. Implement `IBeatSaberPlugin` or `IEnhancedBeatSaberPlugin`
+4. Build the project and copy the DLL into the Plugins folder of the gam
 
-Note: You can use `Console.Write()` with the `--verbose` flag for debugging your plugins.
+See [Developing](https://github.com/nike4613/IPA-Reloaded/wiki/Developing) for more information.
 
 ## How To Keep The Game Patched
 

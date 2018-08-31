@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IllusionInjector.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,17 @@ namespace IllusionInjector
         
         void Awake()
         {
-            if (Environment.CommandLine.Contains("--verbose") && !Screen.fullScreen)
-            {
+            //if (Environment.CommandLine.Contains("--verbose"))
+            //{
                 Windows.GuiConsole.CreateConsole();
-            }
+            //}
+
+            Application.logMessageReceived += delegate (string condition, string stackTrace, LogType type)
+            {
+                var level = UnityLogInterceptor.LogTypeToLevel(type);
+                UnityLogInterceptor.Unitylogger.Log(level, $"{condition.Trim()}");
+                UnityLogInterceptor.Unitylogger.Log(level, $"{stackTrace.Trim()}");
+            };
         }
 
         void Start()
